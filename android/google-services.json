@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "94467057088",
+    "project_id": "fir-flutter-job-tracker",
+    "storage_bucket": "fir-flutter-job-tracker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94467057088:android:a425691a8dcaff7c3fd425",
+        "android_client_info": {
+          "package_name": "com.masahiro.jobtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94467057088-1e03jm108f9ve66rg4u898ukfmo3f2rm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.masahiro.jobtracker",
+            "certificate_hash": "5a95a56acaa4c6b4183506247d0a4f27cb933d2a"
+          }
+        },
+        {
+          "client_id": "94467057088-7jfqbpm8t7dfifkosvu5b5ol2godrq9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.masahiro.jobtracker",
+            "certificate_hash": "9e21e6586872e8a5c3709c2fb93c7df0ae8411f3"
+          }
+        },
+        {
+          "client_id": "94467057088-ijqot3tbvh8hphghbit9p45jcn1huktm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANTxU3cYEn_AJb4cV_7qXZcntADhas2ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94467057088-ijqot3tbvh8hphghbit9p45jcn1huktm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "94467057088-2ivh5kafjaig54dsrnbkgk9umuv1ilde.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterJobTrackerApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
