@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import './../../viewmodels/signin_viewmodel.dart';
 import '../../components/ios_button.dart';
 import '../../components/ios_text_field.dart';
+import './../app/home_view.dart';
 
 class SigninView extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -43,9 +45,19 @@ class SigninView extends StatelessWidget {
                       String email = _emailController.text;
                       String password = _passwordController.text;
 
-                      bool success = await viewModel.loginUser(email, password);
-                      if (success) {
-                        print("User successfully login");
+                      /// 🔹 Authenticate user
+                      User? user = await viewModel.loginUser(email, password);
+
+                      if (user != null) {
+                        print("User successfully logged in");
+
+                        /// 🔹 Navigate to HomeView (No need to pass username)
+                        Navigator.pushReplacement(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const HomeView(),
+                          ),
+                        );
                       } else {
                         print("Error: ${viewModel.errorMessage}");
                       }

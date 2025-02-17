@@ -7,12 +7,18 @@ class AuthService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // ユーザー登録
-  Future<User?> registerUser(String email, String password) async {
+  Future<User?> registerUser(String email, String password, String username) async {
     try {
       UserCredential userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      User? user = userCredential.user;
+      if (user != null) {
+        // 🔹 Update display name in Firebase Authentication
+        await user.updateDisplayName(username);
+        await user.reload(); // Refresh user data
+      }
       print("User created: ${userCredential.user?.uid}");
       return userCredential.user;
     } catch (e) {

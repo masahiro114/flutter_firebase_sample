@@ -11,21 +11,30 @@ class SigninViewModel extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 
-  Future<bool> loginUser(String email, String password) async {
+  /// 🔹 Log in user and return `User?` instead of `bool`
+  Future<User?> loginUser(String email, String password) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();
 
-    User? user = await _authService.loginUser(email, password);
-    if (user != null) {
+    try {
+      User? user = await _authService.loginUser(email, password);
+
+      if (user != null) {
+        _isLoading = false;
+        notifyListeners();
+        return user; // ✅ Return the logged-in user
+      } else {
+        _isLoading = false;
+        _errorMessage = "Login failed. Please try again.";
+        notifyListeners();
+        return null;
+      }
+    } catch (e) {
       _isLoading = false;
+      _errorMessage = "Error: ${e.toString()}";
       notifyListeners();
-      return true;
-    } else {
-      _isLoading = false;
-      _errorMessage = "SignIn failed. Please try again.";
-      notifyListeners();
-      return false;
+      return null;
     }
   }
 }

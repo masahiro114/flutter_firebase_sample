@@ -20,7 +20,7 @@ class RegisterViewModel extends ChangeNotifier {
 
     try {
       // Register user in Firebase Authentication
-      User? user = await _authService.registerUser(email, password);
+      User? user = await _authService.registerUser(email, password, username );
 
       if (user != null) {
         // 🔹 Save user details (username, birthDate) in Firestore
