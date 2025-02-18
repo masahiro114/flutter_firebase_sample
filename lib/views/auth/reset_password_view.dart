@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import './../../viewmodels/reset_password_viewmodel.dart';
-import './signin_view.dart';
 import '../../components/ios_button.dart';
 import '../../components/ios_text_field.dart';
 
