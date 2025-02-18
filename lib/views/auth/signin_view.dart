@@ -5,6 +5,7 @@ import './../../viewmodels/signin_viewmodel.dart';
 import '../../components/ios_button.dart';
 import '../../components/ios_text_field.dart';
 import './../app/home_view.dart';
+import './reset_password_view.dart';
 
 class SigninView extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -35,6 +36,21 @@ class SigninView extends StatelessWidget {
                     controller: _passwordController,
                     placeholder: 'Password',
                     obscureText: true,
+                  ),
+                  const SizedBox(height: 24),
+                  CupertinoButton(
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: CupertinoColors.activeBlue),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => ResetPasswordView(),
+                          ),
+                        );
+                      },
                   ),
                   const SizedBox(height: 24),
                   viewModel.isLoading

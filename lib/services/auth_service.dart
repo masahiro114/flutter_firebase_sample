@@ -41,6 +41,17 @@ class AuthService {
     }
   }
 
+  // パスワード再発行
+  Future<bool> sendPasswordResetEmail(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+      return true; // Success
+    } catch (e) {
+      print("Password Reset Error: $e");
+      return false; // Failure
+    }
+  }
+
   // ユーザーメタ登録
   Future<void> saveUserDetails(UserModel user) async {
     try {
