@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
       ),
       child: Center(
         child: _userModel == null
-            ? const CupertinoActivityIndicator() // Show loading spinner while fetching data
+            ? const CupertinoActivityIndicator()
             : Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -52,7 +52,10 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(height: 10),
             Text(
               "Your Birthday: ${_userModel!.birthDate.year}-${_userModel!.birthDate.month.toString().padLeft(2, '0')}-${_userModel!.birthDate.day.toString().padLeft(2, '0')}",
-              style: const TextStyle(fontSize: 18, color: CupertinoColors.systemGrey),
+              style: const TextStyle(
+                fontSize: 18,
+                color: CupertinoColors.systemGrey,
+              ),
             ),
           ],
         ),
